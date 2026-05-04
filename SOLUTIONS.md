@@ -1,9 +1,9 @@
 # 🛠️ Security Implementation Examples
 
-This document outlines the technical patterns used to resolve the identified security flaws[cite: 3, 4].
+This document outlines the technical patterns used to resolve the identified security flaws.
 
 ### 1. Hardware-Backed Encryption
-Replacing insecure SharedPreferences with encrypted hardware storage[cite: 3, 4].
+Replacing insecure SharedPreferences with encrypted hardware storage.
 ```dart
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
