@@ -1,0 +1,22 @@
+// Secure Build Configuration for Android (build.gradle)
+// PRO TIP: Never hardcode passwords or sensitive paths directly in the script.
+
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+
+// Load credentials from a local file that is NOT tracked by version control (gitignored)
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+android {
+    signingConfigs {
+        release {
+            // Credentials are dynamically injected from the local properties file
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+        }
+    }
+}
